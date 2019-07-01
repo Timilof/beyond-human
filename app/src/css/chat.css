@@ -1,0 +1,159 @@
+textarea:focus,
+textarea:active{
+outline: none;
+}
+
+textarea{
+  border: none;
+  resize: none;
+  padding: 0;
+  background-color: #fff;
+  font-size: 19px;
+  width: 60%;
+  margin-left: auto;
+}
+
+form{
+  margin-top: auto;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: #000;
+}
+
+form button{
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 0px 30px 0px;
+  font-size: 19px;
+  margin-right: 10%;
+  margin-left: 40px;
+}
+
+.chat-welcome{
+  text-align: center;
+  cursor: default;
+}
+.chat-welcome p{
+margin-bottom: 0;
+}
+.chat-welcome span{
+  opacity: .1;
+}
+
+.chatMessage:hover .guideSkill{
+  opacity: 1;
+  transition: .3s ease;
+}
+.chatMessage{
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.chatMessage span{
+  font-size: 7px;
+  position: absolute;
+  top: 36px;
+  padding: 0px 10px;
+}
+.warningMsg::before,
+.chatMessage p:last-of-type::before{
+  content: "T";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: -20px;
+  transform: rotate(-90deg);
+  font-size: 20px;
+  top: 6px;
+}
+.chatMessage p:last-of-type{
+  border: 1px solid #000;
+  padding: 0px 5px;
+  margin-left: 20px;
+  position: relative;
+}
+
+.message-container{
+  max-width: 70%;
+  margin: auto;
+  overflow: scroll;
+  max-height: 40vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.myMsg{
+  margin-left: auto;
+  flex-direction: row-reverse;
+}
+
+.myMsg p:last-of-type::before{
+display: none;
+}
+
+.warningMsg p::after,
+.myMsg p:last-of-type::after{
+  content: "T";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  color: #000;
+  right: -20px;
+  transform: rotate(90deg);
+  font-size: 20px;
+  top: 6px;
+}
+
+.warningMsg p::after{
+top: 5px;
+}
+
+.myMsg p:last-of-type{
+  margin-right: 20px;
+  margin-left: 0px;
+  color: #fff;
+  background-color: #000;
+}
+
+.warningMsg p{
+  margin: 0;
+}
+.warningMsg{
+  position: relative;
+  display: flex;
+  align-self: center;
+}
+
+.guideSkill button:hover{
+  background-color: #000;
+  color: #fff;
+  cursor: pointer;
+}
+.guideSkill button{
+  border: 1px solid #000;
+  background-color: #fff;
+  color: #000;
+  font-size: 9px;
+  text-transform: uppercase;
+}
+.guideSkill{
+  opacity: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+  width: 50px;
+  top: -22px;
+}
+
+.plebs .guideSkill{
+display: none;
+}

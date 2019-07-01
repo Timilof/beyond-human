@@ -1,0 +1,129 @@
+.shop-container{
+  display: flex;
+  max-width: 80%;
+  margin: auto;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shop-container a:hover p{
+text-decoration: underline;
+transition: .3s ease;
+}
+
+/* .shop-container a:first-of-type{
+background-image: url('../img/all_utentils.png');
+background-repeat: no-repeat;
+background-size: contain;
+} */
+.shop-container a img{
+  position: absolute;
+  width: 320px;
+  left: -33px;
+  top: -10px;
+}
+.shop-container a{
+  position: relative;
+  text-decoration: none;
+  height: 240px;
+  display: flex;
+  align-items: flex-end;
+  box-shadow: 0 10px 15px 0px rgba(0,0,0,0.1);
+  margin: 20px;
+  width: 270px;
+}
+.shop-container p:first-of-type{
+margin-right: auto;
+color: #c71313;
+}
+.shop-container p:last-of-type{
+margin-right: 10px;
+}
+.shop-container p{
+text-align: center;
+color: #000;
+margin-left: 10px;
+
+}
+
+.shadow-overlay{
+  position: fixed;
+  background-color: #00000073;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  z-index: 3;
+}
+
+
+.chosen{
+  position: absolute;
+  background-color: #fff;
+  width: 70%;
+  left: 15%;
+  top: 10%;
+}
+
+.chosen-img{
+  max-width: 60%;
+  margin: 0;
+  padding: 0;
+}
+
+.chosen h2{
+  padding: 0;
+  text-align: left;
+  padding-left: 30px;
+  padding-top: 12px;
+}
+
+.chosen p{
+  padding-left: 30px;
+  padding-right: 40px;
+  line-height: 1.5;
+}
+
+.chosen-price,
+.chosen button:first-of-type:focus,
+.chosen button:first-of-type:active{
+outline: none;
+color: #c71313;
+}
+.chosen button:first-of-type:hover{
+color: #c71313;
+transition: .3s ease;
+cursor: pointer;
+}
+
+.chosen button:first-of-type{
+  background-color: #fff0;
+  border: none;
+  font-size: 30px;
+  transform: rotate(45deg);
+  position: absolute;
+  right: 0;
+}
+
+.chosen button:last-of-type{
+  background-color: #000;
+  color: #fff;
+  padding: 10px;
+  font-size: 17px;
+  margin: 0;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  border: none;
+}
+
+.chosen button:last-of-type:focus,
+.chosen button:last-of-type:active{
+outline: none;
+background-color: #c71313;
+}
+.chosen button:last-of-type:hover{
+background-color: #c71313;
+transition: .3s ease;
+cursor: pointer;
+}

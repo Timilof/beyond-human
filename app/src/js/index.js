@@ -12,10 +12,7 @@ document.addEventListener("DOMContentLoaded", function() {
         lazyloadImages.forEach(function(img) {
             if(img.offsetTop < (window.innerHeight + scrollTop)) {
               img.src = img.dataset.src;
-              // img.src = img.value;
               img.classList.remove('lazy');
-              console.log(img)
-              console.log(img.src)
             }
         });
         if(lazyloadImages.length == 0) {
@@ -36,3 +33,27 @@ document.querySelector(".creditBox button").addEventListener("click", function()
 document.querySelector(".creditBox").classList.toggle("short");
 window.scrollTo(0,document.body.scrollHeight);
 })
+
+document.body.addEventListener("keydown", function(e) {
+  if(e.code == 'Space'){
+  e.preventDefault()
+  pageScroll()
+  }
+
+})
+
+
+
+function pageScroll() {
+  const lastButton = document.querySelector(".creditBox button")
+  const main = document.querySelector(".main")
+  if(window.innerHeight + window.pageYOffset == lastButton.offsetTop){
+  window.scrollTo(0,0);
+  setTimeout(pageScroll,3000);
+}else{
+
+  window.scrollBy(0,1.5);
+  scrolldelay = setTimeout(pageScroll,3);
+}
+
+}

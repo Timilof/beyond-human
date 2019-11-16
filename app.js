@@ -7,7 +7,7 @@ const app = express()
 
 const http = require('http').Server(app);
 const io = require('socket.io')(http);
-const port = process.env.PORT || 1200;
+const port = process.env.PORT || 80;
 const fs = require('fs');
 
 app.get('/', function(req, res) {
@@ -51,4 +51,4 @@ socket.on('shunner', function(xoUser){
 
 
 
-http.listen((process.env.PORT || 1200), () => console.log(`Example app listening on port ${port}!`))
+http.listen((process.env.PORT || 80), () => console.log(`Example app listening on port ${port}!`))

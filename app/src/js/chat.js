@@ -141,7 +141,7 @@
       leo: "Leo can zucc my big ole stick met zn brand en netwerk en al die troep 🖕🏻",
     }
 
-    let newerMessage = data.substance.msg.replace(/Cult|cult|Sect|sect|member|members|leader|controlling|control|controls|controlled|oppressed|oppress|oppressing|oppresses|oppression|censor|censors|censored|censoring|censorship|brainwash|mindcontrol|leo/gi, function(matched) {
+    let newerMessage = data.substance.msg.replace(/Cult|cult|Sect|sect|member|members|leader|controlling|control|controls|controlled|oppressed|oppress|oppressing|oppresses|oppression|censor|censors|censored|censoring|censorship|brainwash|mindcontrol|tim|Tim|leo/gi, function(matched) {
       return forbiddenWords[matched];
 
     });

@@ -31,14 +31,15 @@ let shunList = [];
 socket.on('warning', function(){
 io.emit('warning')
 })
-
+// normal message handler
 socket.on('chat message', function(msg){
     io.emit('chat message', {substance:msg, shun:shunList});
   })
-
+// delete message handler
 socket.on('deleter', function(ids){
     io.emit('deleter', ids);
   })
+// shunning handler
 socket.on('shunner', function(xoUser){
     shunList.push(xoUser)
     console.log(shunList)

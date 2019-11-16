@@ -7,7 +7,8 @@
   const chatWindow = document.querySelector(".message-container")
   document.querySelector("h2").textContent = `Welcome child-${childNumber}`
 
-  console.log("Speak")
+// a really big function to handle the messages
+// // TODO: add something to make this smaller make variables or something
   document.querySelector('.send').addEventListener("click", function(e) {
     e.preventDefault();
     const message = document.querySelector('.input').value
@@ -16,14 +17,15 @@
       document.querySelector('.input').value = "";
       document.querySelector('.input').focus();
     } else if (message == "mayke") {
+// user gains admin level by typing mayke
       userType = "Guide";
-      console.log(`${userType}-` + `${childNumber}`)
       document.querySelector('.input').value = "";
       document.querySelector('.input').focus();
       document.querySelector("h2").textContent = `Welcome guide-${childNumber}`
       status.textContent = "Guide our children"
       chatWindow.classList.remove("plebs")
     } else if (message == "warn") {
+// admin user: fires warning
       socket.emit('warning');
       document.querySelector('.input').value = "";
       document.querySelector('.input').focus();
@@ -33,6 +35,7 @@
       let hours = new Date().getHours()
       const timestamp = hours + ":" + minutes + ":" + seconds
       const messageId = Math.floor(Math.random() * 99999999) + 1;
+// object with socket/user data
       socket.emit('chat message', {
         msg: message,
         time: timestamp,
@@ -58,11 +61,13 @@
     })
   }
 
+// takes message id and deletes it for everyone
   function deltaButton() {
     const current = this.parentElement.parentElement.id
     socket.emit('deleter', current)
   }
 
+// takes user id and makes them unable to post
   function foxButton() {
     const badUser = this.parentElement.parentElement.classList[1].substring(1)
     socket.emit("shunner", badUser);
@@ -70,10 +75,8 @@
 
 
   socket.on("shunner", function(outData) {
-    console.log(outData)
 
     badMembers = outData.list;
-    console.log(badMembers)
     const longChild = outData.xo
     const shunMessage = `
       <li class="warningMsg">
@@ -83,16 +86,15 @@
     chatWindow.insertAdjacentHTML('beforeend', shunMessage)
     chatWindow.scrollTop = chatWindow.scrollHeight;
     document.querySelectorAll(`.c${outData.xo}`).forEach(xer => {
-      // chatWindow.removeChild(xer)
-    if(childNumber == outData.xo){
+
+      if (childNumber == outData.xo) {
         status.textContent = "You have been shunned"
         status.setAttribute("style", "color: red;");
-}
+      }
     })
   })
 
   socket.on('deleter', function(id) {
-    console.log("delete " + id)
     const removable = document.querySelector(`#${id}`)
     chatWindow.removeChild(removable)
   })
@@ -108,34 +110,34 @@
     console.log("warning to all children")
   })
 
+// what each socket does when it receives the message
   socket.on('chat message', function(data) {
-    console.log(data)
-
-
     const forbiddenWords = {
-      Cult : "Community",
-      cult :  "Community",
+      Cult: "Community",
+      cult: "Community",
       Sect: "Community",
       sect: "Community",
-      member : "Child",
-      members : "Children",
-      leader : "Guide",
-      controlling : "guiding",
-      control : "guide",
-      controls : "guides",
-      controlled : "guided" ,
-      oppressed : "strongly guided",
+      member: "Child",
+      members: "Children",
+      leader: "Guide",
+      controlling: "guiding",
+      control: "guide",
+      controls: "guides",
+      controlled: "guided",
+      oppressed: "strongly guided",
       oppress: "strongly guide",
       oppressing: "strongly guiding",
       oppresses: "strongly guides",
-      oppression : "strong guidance",
-      censor : "help",
-      censors : "helps",
+      oppression: "strong guidance",
+      censor: "help",
+      censors: "helps",
       censored: "helped",
       censoring: "helping",
-      censorship : "a helping hand",
+      censorship: "a helping hand",
       brainwash: "reform",
-      mindcontrol : "reform",
+      mindcontrol: "reform",
+      tim: "Mayke is een liddl eitje UwU",
+      Tim: "Mayke is a smol bean :-)",
       leo: "Leo can zucc my big ole stick met zn brand en netwerk en al die troep 🖕🏻",
     }
 
@@ -146,9 +148,9 @@
     if (badMembers.length > 0) {
       badMembers.forEach(exChild => {
         if (exChild == data.substance.userNumber) {
-          console.log("A bad mfer is typing!!!! " + exChild)
+// a bad member is trying to type
         } else {
-          console.log("nothing too see here bois " + data.substance.userNumber)
+// nothing to see :-) this is a law abiding user
           writer(data, newerMessage);
         }
       })
@@ -215,19 +217,5 @@
     shunningTon();
   }
 
-  // socket.on('message history', function(data) {
-  // console.log(data)
-  //   data.forEach(x => {
-  //     const theMessage =
-  //       `
-  // <li class="chatMessage">
-  // <p>Member-???</p>
-  // <span>${x.time}</span>
-  // <p>${x.msg}</p>
-  // </li>
-  // `
-  //     chatWindow.insertAdjacentHTML('beforeend', theMessage)
-  //   })
-  // })
 
 }());

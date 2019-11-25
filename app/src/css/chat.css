@@ -80,11 +80,7 @@ margin-bottom: 0;
   position: relative;
 }
 
-.message-container::-webkit-scrollbar-track
-{
-    /* -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); */
-    background-color: #F5F5F5;
-}
+
 
 .message-container::-webkit-scrollbar
 {
@@ -92,11 +88,6 @@ margin-bottom: 0;
     background-color: #000;
 }
 
-.message-container::-webkit-scrollbar-thumb
-{
-    background-color: #000000;
-    border: none;
-}
 
 .message-container{
   max-width: 70%;

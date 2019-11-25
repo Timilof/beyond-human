@@ -81,13 +81,16 @@ margin-bottom: 0;
 }
 
 
-
 .message-container::-webkit-scrollbar
 {
     width: 2px;
-    background-color: #000;
 }
 
+.message-container::-webkit-scrollbar-thumb
+{
+    background-color: #000000;
+    border: none;
+}
 
 .message-container{
   max-width: 70%;
